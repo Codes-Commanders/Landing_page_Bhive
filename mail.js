@@ -63,16 +63,23 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.classList.toggle('lock');
   };
 
+  const closeMobileMenu = () => {
+    burgerMenu.classList.remove('active');
+    mobileMenu.classList.remove('active');
+    document.body.classList.remove('lock');
+  };
+
   // menu
   burgerMenu.addEventListener('click', toggleMobileMenu);
 
   // click to nav batton
-  navBtns.forEach((btn) => btn.addEventListener('click', toggleMobileMenu));
+  navBtns.forEach((btn) => btn.addEventListener('click', closeMobileMenu));
 
   // sliders
   prevSlideBtn.addEventListener('click', () =>
     showSlide(firstSlider, 'firstSlider', 'prev')
   );
+
   nextSlideBtn.addEventListener('click', () =>
     showSlide(firstSlider, 'firstSlider', 'next')
   );
